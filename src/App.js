@@ -39,6 +39,16 @@ const getImageByBreed = (imgsBreed, breed) => {
 };
 
 function App() {
+  async function search (){
+    //https://api.mapbox.com/geocoding/v5/mapbox.places/515%washin.json?types=address&access_token=pk.eyJ1IjoiYWxleGRlbGdhZG8iLCJhIjoiY2tlZGxiMW5rMDIzajJzb3p3OGFnN2t3cCJ9.-OspwPUhiJvBmJk2lrDQ7g
+    const response = await fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/515%washin.json?types=address&access_token=pk.eyJ1IjoiYWxleGRlbGdhZG8iLCJhIjoiY2tlZGxiMW5rMDIzajJzb3p3OGFnN2t3cCJ9.-OspwPUhiJvBmJk2lrDQ7g")
+   // const data =  await response.json()
+   // return data
+   return response
+  }
+  useEffect(()=>{
+    search().then(r => console.log(r))
+  },[])
   const initialImages = [
     "https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg",
     "https://images.dog.ceo/breeds/boxer/n02108089_10229.jpg",
